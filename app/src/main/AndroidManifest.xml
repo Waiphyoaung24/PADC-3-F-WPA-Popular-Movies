@@ -13,12 +13,19 @@
             android:name=".activities.activities.activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".activities.activities.activities.MovieDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Movie Detail"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
