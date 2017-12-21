@@ -1,5 +1,6 @@
 package xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +16,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.R;
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.adapters.MoviesAdapter;
+import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.delegates.MovieItemDelegates;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MovieItemDelegates{
     @BindView(R.id.fab)
     FloatingActionButton fab;
     @BindView(R.id.rv_movies)
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this,this );
-        MoviesAdapter =new MoviesAdapter();
+        MoviesAdapter =new MoviesAdapter(this);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         rvMovies.setLayoutManager(linearLayoutManager);
         rvMovies.setAdapter(MoviesAdapter);
@@ -71,5 +73,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapMovieItem() {
+        Intent intent=new Intent(getApplicationContext(),MovieDetailActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onTapOverviewButton() {
+
+    }
+
+    @Override
+    public void onTapFullscreenButton() {
+
     }
 }

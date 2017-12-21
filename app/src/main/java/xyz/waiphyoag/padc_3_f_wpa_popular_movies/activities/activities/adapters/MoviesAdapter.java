@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.R;
+import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.delegates.MovieItemDelegates;
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.viewholders.ItemsViewsHolder;
 
 /**
@@ -14,12 +15,17 @@ import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.viewholde
  */
 
 public class MoviesAdapter extends RecyclerView.Adapter {
+    private MovieItemDelegates mmovieItemDelegates;
+    public MoviesAdapter(MovieItemDelegates movieItemDelegates)
+    {
+        mmovieItemDelegates=movieItemDelegates;
+    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View movieitemsView = inflater.inflate(R.layout.item_movies, parent, false);
-        ItemsViewsHolder itemsViewsHolder = new ItemsViewsHolder(movieitemsView);
+        ItemsViewsHolder itemsViewsHolder = new ItemsViewsHolder(movieitemsView, mmovieItemDelegates);
         return itemsViewsHolder;
     }
 

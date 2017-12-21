@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:id="@+id/cv_movie_item_root">
 
 
     <RelativeLayout
@@ -43,10 +44,10 @@
 
         <TextView
             android:id="@+id/tv_rating"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_movie_types"
+            android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/iv_movie_logo"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
@@ -81,18 +82,17 @@
             android:textColor="@color/icons" />
 
 
-            <TextView
-                android:id="@+id/tv_rating_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:gravity="center"
-                android:text="5.3"
-                android:textColor="@color/icons"
-                android:textSize="17sp"
-                android:textStyle="italic"
-                android:background="@drawable/ic_favorite_black_24dp"/>
-
+        <TextView
+            android:id="@+id/tv_rating_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:background="@drawable/ic_favorite_black_24dp"
+            android:gravity="center"
+            android:text="5.3"
+            android:textColor="@color/icons"
+            android:textSize="17sp"
+            android:textStyle="italic" />
 
 
         <ImageButton
