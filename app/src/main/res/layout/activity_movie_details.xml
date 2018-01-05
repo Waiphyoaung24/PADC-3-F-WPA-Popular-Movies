@@ -160,72 +160,25 @@
 
                 />
 
-            <TextView
-                android:id="@+id/tv_movie_genre_1"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_movie_genre_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="60dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/red"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="14dp"
+                android:layout_below="@id/movie_title"
                 android:fitsSystemWindows="true"
                 android:padding="3dp"
-                android:text="Adventure"
-                android:textColor="@color/black_full" />
+                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="62dp"
-                android:layout_toRightOf="@id/tv_movie_genre_1"
-                android:fitsSystemWindows="true"
-                android:text="|"
-                android:textColor="@color/white_full" />
 
-            <TextView
-                android:id="@+id/tv_movie_genre_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="60dp"
-                android:layout_toRightOf="@id/tv_movie_genre_1"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/red"
-                android:fitsSystemWindows="true"
-                android:padding="3dp"
-                android:text="Fantasy"
-                android:textColor="@color/black_full" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="62dp"
-                android:layout_toRightOf="@id/tv_movie_genre_2"
-                android:text="|"
-                android:textColor="@color/white_full" />
-
-            <TextView
-                android:id="@+id/tv_movie_genre_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="60dp"
-                android:layout_toRightOf="@id/tv_movie_genre_2"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="@color/red"
-                android:fitsSystemWindows="true"
-                android:padding="3dp"
-                android:text="Action"
-                android:textColor="@color/black_full" />
 
             <TextView
                 android:id="@+id/movie_duration"
                 style="@style/text_white_text_black_border"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_movie_genre_1"
+                android:layout_below="@id/rv_movie_genre_1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_text"
@@ -261,18 +214,16 @@
                 android:textColor="@color/white_full"
                 android:textSize="22sp" />
 
-            <TextView
-                android:id="@+id/tv_review_details"
-                style="@style/text_white_text_black_border"
-                android:layout_width="wrap_content"
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_Review_heading"
-                android:layout_margin="16dp"
                 android:fitsSystemWindows="true"
-                android:lineSpacingMultiplier="1.2"
-                android:text="@string/review_detail"
-                android:textColor="@color/white_full"
-                android:textSize="14sp" />
+                android:layout_marginBottom="16dp"
+                android:id="@+id/rv_movie_reviews">
+
+
+            </android.support.v7.widget.RecyclerView>
 
         </RelativeLayout>
 

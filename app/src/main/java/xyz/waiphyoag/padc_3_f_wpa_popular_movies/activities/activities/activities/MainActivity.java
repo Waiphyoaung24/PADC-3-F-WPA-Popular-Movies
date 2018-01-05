@@ -8,13 +8,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.R;
+import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.Data.vo.Model.MoviesModel;
+import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.Events.LoadedMovieEvent;
+import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.PopularMovieApp;
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.adapters.MoviesAdapter;
 import xyz.waiphyoag.padc_3_f_wpa_popular_movies.activities.activities.delegates.MovieItemDelegates;
 
@@ -28,6 +36,17 @@ public class MainActivity extends AppCompatActivity implements MovieItemDelegate
     private MoviesAdapter MoviesAdapter;
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements MovieItemDelegate
         rvMovies.setLayoutManager(linearLayoutManager);
         rvMovies.setAdapter(MoviesAdapter);
 
+        MoviesModel.getsObjInstance().loadMovies();
 
 
         setSupportActionBar(toolbar);
@@ -88,6 +108,13 @@ public class MainActivity extends AppCompatActivity implements MovieItemDelegate
 
     @Override
     public void onTapFullscreenButton() {
+
+    }
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onMoviesLoad(LoadedMovieEvent event)
+    {
+        Log.d(PopularMovieApp.LOG_TAG,"onMoviesLoaded:" + event.getMoviesList().size());
+        MoviesAdapter.setMovies(event.getMoviesList());
 
     }
 }
